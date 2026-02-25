@@ -60,6 +60,15 @@ const [drawerOpen, setDrawerOpen] = useState(false);
           label={`${movie.vote_average} (${movie.vote_count})`}
         />
         <Chip label={`Released: ${movie.release_date}`} />
+        {/* //<Chip label={`Production Countries: ${movie.production_countries})`} /> */}
+        <li>
+          <Chip label="Genres" sx={{...chip}} color="primary" />
+        </li>
+        {movie.production_countries.map((c) => (
+          <li key={c.name}>
+            <Chip label={c.name} sx={{...chip}} />
+          </li>
+        ))}
       </Paper>
             <Fab
         color="secondary"
