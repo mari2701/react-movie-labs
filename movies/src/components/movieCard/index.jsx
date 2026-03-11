@@ -76,7 +76,7 @@ export default function MovieCard({ movie, action }) {
           </Grid>
         </Grid>
       </CardContent>
-           <CardActions disableSpacing>
+                 <CardActions disableSpacing>
       
         {action(movie)}
       
@@ -87,7 +87,6 @@ export default function MovieCard({ movie, action }) {
         </Link>
         
       </CardActions>
-
     </Card>
   );
 }
