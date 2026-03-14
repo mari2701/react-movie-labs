@@ -3,6 +3,7 @@ import SiteHeader from './components/siteHeader'
 import React from "react";
 import { createRoot } from "react-dom/client";
 import HomePage from "./pages/homePage";
+import UpcomingMoviesPage from "./pages/upcomingMoviesPage";
 import MoviePage from "./pages/movieDetailsPage";
 import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import MovieReviewPage from "./pages/movieReviewPage";
@@ -38,6 +39,8 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={ <Navigate to="/" /> } />
            <Route path="/reviews/form" element={ <AddMovieReviewPage /> } />
+
+              <Route path="/movies/upcoming" element={<UpcomingMoviesPage />} />
 
           </Routes>
         </MoviesContextProvider>
