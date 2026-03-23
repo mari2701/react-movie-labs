@@ -6,10 +6,16 @@ import { getMovie } from "../api/tmdb-api";
 import Spinner from '../components/spinner'
 import RemoveFromFavorites from "../components/cardIcons/removeFromFavorites";
 import WriteReview from "../components/cardIcons/writeReview";
+import AddToWatchListIcon from '../components/cardIcons/addToWatchList';
+
 
 
 const FavoriteMoviesPage = () => {
   const {favorites: movieIds } = useContext(MoviesContext);
+
+  if (movieIds.length === 0) {
+    return <h1>Nothing here yet!</h1>
+  }
 
   // Create an array of queries and run in parallel.
   const favoriteMovieQueries = useQueries({
@@ -44,6 +50,7 @@ const FavoriteMoviesPage = () => {
           <>
             <RemoveFromFavorites movie={movie} />
             <WriteReview movie={movie} />
+             <AddToWatchListIcon movie={movie} />
           </>
         );
       }}

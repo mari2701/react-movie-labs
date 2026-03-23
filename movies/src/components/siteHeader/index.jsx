@@ -18,6 +18,9 @@ const SiteHeader = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
+  const [anchorElMovies, setAnchorElMovies] = useState(null);
+  const openMovies = Boolean(anchorElMovies);
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   
@@ -26,17 +29,26 @@ const SiteHeader = () => {
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favorites" },
+  ];
+
+  const moviesMenuOptions = [
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Must Watch", path: "/movies/mustwatch" },
+    { label: "Top Rated", path: "/movies/topRated" },
   ];
 
   const handleMenuSelect = (pageURL) => {
     setAnchorEl(null);
+    setAnchorElMovies(null);
     navigate(pageURL);
   };
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleMoviesMenu = (event) => {
+    setAnchorElMovies(event.currentTarget);
   };
 
   return (
@@ -75,7 +87,7 @@ const SiteHeader = () => {
                   open={open}
                   onClose={() => setAnchorEl(null)}
                 >
-                  {menuOptions.map((opt) => (
+                  {[...menuOptions, ...moviesMenuOptions].map((opt) => (
                     <MenuItem
                       key={opt.label}
                       onClick={() => handleMenuSelect(opt.path)}
@@ -96,6 +108,30 @@ const SiteHeader = () => {
                     {opt.label}
                   </Button>
                 ))}
+                <Button
+                  color="inherit"
+                  onClick={handleMoviesMenu}
+                >
+                  Movies
+                </Button>
+                <Menu
+                  anchorEl={anchorElMovies}
+                  open={openMovies}
+                  onClose={() => setAnchorElMovies(null)}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                >
+                  {moviesMenuOptions.map((opt) => (
+                    <MenuItem
+                      key={opt.label}
+                      onClick={() => handleMenuSelect(opt.path)}
+                    >
+                      {opt.label}
+                    </MenuItem>
+                  ))}
+                </Menu>
               </>
             )}
         </Toolbar>

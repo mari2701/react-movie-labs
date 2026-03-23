@@ -9,6 +9,10 @@ import WriteReview from "../components/cardIcons/writeReview";
 const MustWatchMoviesPage = () => {
   const { mustWatch: movieIds } = useContext(MoviesContext);
 
+  if (movieIds.length === 0) {
+    return <h1>Nothing here yet!</h1>
+  }
+
   const mustWatchMovieQueries = useQueries({
     queries: movieIds.map((movieId) => {
       return {
@@ -36,6 +40,7 @@ const MustWatchMoviesPage = () => {
       title="Must Watch Movies"
       movies={movies}
       action={toDo}
+      
     />
   );
 };
