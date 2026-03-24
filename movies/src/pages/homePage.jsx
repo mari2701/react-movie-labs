@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { getMovies } from "../api/tmdb-api";
 import PageTemplate from '../components/templateMovieListPage';
 import { useQuery } from '@tanstack/react-query';
@@ -10,9 +10,10 @@ import AddToWatchListIcon from '../components/cardIcons/addToWatchList';
 
 
 const HomePage = (props) => {
+  const [yearFilter, setYearFilter] = useState("");
 
   const { data, error, isPending, isError  } = useQuery({
-    queryKey: ['discover'],
+    queryKey: ['discover', { year: yearFilter }],
     queryFn: getMovies,
   })
   
@@ -34,6 +35,8 @@ const HomePage = (props) => {
        return (
       <PageTemplate
         title="Discover Movies"
+        yearFilterProp={yearFilter}
+        setYearFilterProp={setYearFilter}
         movies={movies}
         action={(movie) => {
          return (
@@ -47,5 +50,3 @@ const HomePage = (props) => {
   );
 };
 export default HomePage;
-
-

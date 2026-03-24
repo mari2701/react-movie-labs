@@ -36,12 +36,9 @@ export default function FilterMoviesCard(props) {
     return <h1>{error.message}</h1>;
   }
   const genres = data.genres;
-  if (genres[0].name !== "All"){
-    genres.unshift({ id: "0", name: "All" });
-  }
+  const displayGenres = [{ id: "0", name: "All" }, ...genres];
 
   const handleChange = (e, type, value) => {
-    e.preventDefault();
     props.onUserInput(type, value); 
   };
 
@@ -52,6 +49,15 @@ export default function FilterMoviesCard(props) {
   const handleGenreChange = (e) => {
     handleChange(e, "genre", e.target.value);
   };
+
+  const handleYearChange = (e) => {
+    handleChange(e, "year", e.target.value);
+  };
+
+  const years = [];
+  for (let i = 2027; i >= 1950; i--) {
+    years.push(i);
+  }
 
 
 
@@ -86,13 +92,30 @@ export default function FilterMoviesCard(props) {
     onChange={handleGenreChange}
   >
 
-            {genres.map((genre) => {
+            {displayGenres.map((genre) => {
               return (
                 <MenuItem key={genre.id} value={genre.id}>
                   {genre.name}
                 </MenuItem>
               );
             })}
+          </Select>
+        </FormControl>
+
+        <FormControl sx={{ ...formControl }}>
+          <InputLabel id="year-label">Release Year</InputLabel>
+          <Select
+            labelId="year-label"
+            id="year-select"
+            value={props.yearFilter}
+            onChange={handleYearChange}
+          >
+            <MenuItem value="">All</MenuItem>
+            {years.map((year) => (
+              <MenuItem key={year} value={year}>
+                {year}
+              </MenuItem>
+            ))}
           </Select>
         </FormControl>
       </CardContent>
