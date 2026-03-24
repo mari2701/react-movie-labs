@@ -10,7 +10,6 @@ import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import img from '../../images/pexels-dziana-hasanbekava-5480827.jpg'
 import { getGenres } from "../../api/tmdb-api";
 
 
@@ -64,7 +63,7 @@ export default function FilterMoviesCard(props) {
   return (
     <Card 
       sx={{
-        backgroundColor: "rgb(204, 204, 0)"
+        backgroundColor: "rgb(245, 154, 158)"
       }} 
       variant="outlined">
       <CardContent>
@@ -121,7 +120,7 @@ export default function FilterMoviesCard(props) {
       </CardContent>
       <CardMedia
         sx={{ height: 300 }}
-        image={img}
+        image="https://i.pinimg.com/1200x/a8/e0/e4/a8e0e49d0301f8812eb150cdc6bb95e8.jpg"
         title="Filter"
       />
       <CardContent>

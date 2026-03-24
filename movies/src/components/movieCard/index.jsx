@@ -81,8 +81,8 @@ export default function MovieCard({ movie, action }) {
         {action(movie)}
       
         <Link to={`/movies/${movie.id}`}>
-          <Button variant="outlined" size="medium" color="primary">
-            More Info ...
+          <Button variant="outlined" size="medium" sx={{ color: '#7a4530' }}>
+            more info
           </Button>
         </Link>
         

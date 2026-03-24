@@ -53,12 +53,12 @@ const MoviePage = (props) => {
         <>
           <MovieHeader movie={movie} />
           <Grid container spacing={5} style={{ padding: "15px" }}>
-            <Grid size={{ xs: 3 }}>
+            <Grid item xs={3}>
               <div
                 style={{
                   display: "flex",
                   flexWrap: "wrap",
-                  justifyContent: "space-around",
+                  justifyContent: "center",
                 }}
               >
                 <ImageList sx={{ height: "100vh" }} cols={1}>
@@ -73,7 +73,7 @@ const MoviePage = (props) => {
                 </ImageList>
               </div>
             </Grid>
-            <Grid size={{ xs: 9 }}>
+            <Grid item xs={9}>
               <MovieDetails movie={movie} />
               <MovieCast cast={cast} /> {/* ✅ NEW: display cast below movie details */}
             </Grid>

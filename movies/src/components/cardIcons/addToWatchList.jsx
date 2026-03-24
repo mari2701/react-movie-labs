@@ -8,7 +8,7 @@ const AddToWatchListIcon = ({ movie }) => {
     context.addToMustWatch(movie);
   };
   return (
-    <PlaylistAddIcon color="primary" onClick={handleAddToMustWatch} style={{ cursor: 'pointer' }} />
+    <PlaylistAddIcon sx={{ color: '#eb5084' }} fontSize="large"onClick={handleAddToMustWatch} style={{ cursor: 'pointer' }} />
   );
 };
 

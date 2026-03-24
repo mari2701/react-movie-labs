@@ -35,6 +35,7 @@ const SiteHeader = () => {
     { label: "Upcoming", path: "/movies/upcoming" },
     { label: "Must Watch", path: "/movies/mustwatch" },
     { label: "Top Rated", path: "/movies/topRated" },
+    { label: "Now Playing", path: "/movies/now_playing" },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -53,13 +54,13 @@ const SiteHeader = () => {
 
   return (
     <>
-      <AppBar position="fixed" color="secondary">
+      <AppBar position="fixed" sx={{ backgroundColor: "#cf235c6c" }}>
         <Toolbar>
-          <Typography variant="h4" sx={{ flexGrow: 1 }}>
-            TMDB Client
+          <Typography variant="h4" sx={{ flexGrow: 1, fontFamily: " 'Calibri', serif" }}> 
+            tmdb client
           </Typography>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            All you ever wanted to know about Movies!
+           °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･―୨୧⋆˚all about movies˚⋆୨୧―°❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･
           </Typography>
             {isMobile ? (
               <>
