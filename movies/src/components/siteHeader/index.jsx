@@ -26,16 +26,17 @@ const SiteHeader = () => {
   
   const navigate = useNavigate();
 
+
   const menuOptions = [
-    { label: "Home", path: "/" },
-    { label: "Favorites", path: "/movies/favorites" },
-        { label: "Must Watch", path: "/movies/mustwatch" },
+    { label: "Home", path: "/", fontFamily: "'Delius Swash Caps', cursive" },
+    { label: "Favorites", path: "/movies/favorites", fontFamily: "'Delius Swash Caps', cursive" },
+    { label: "Must Watch", path: "/movies/mustwatch", fontFamily: "'Delius Swash Caps', cursive" },
   ];
 
   const moviesMenuOptions = [
-    { label: "Upcoming", path: "/movies/upcoming" },
-    { label: "Top Rated", path: "/movies/topRated" },
-    { label: "Now Playing", path: "/movies/now_playing" },
+    { label: "Upcoming", path: "/movies/upcoming", fontFamily: "'Delius Swash Caps', cursive" },
+    { label: "Top Rated", path: "/movies/topRated", fontFamily: "'Delius Swash Caps', cursive" },
+    { label: "Now Playing", path: "/movies/now_playing", fontFamily: "'Delius Swash Caps', cursive" },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -56,8 +57,8 @@ const SiteHeader = () => {
     <>
       <AppBar position="fixed" sx={{ backgroundColor: "#cf235c6c" }}>
         <Toolbar>
-          <Typography variant="h4" sx={{ flexGrow: 1, fontFamily: " 'Calibri', serif" }}> 
-            tmdb client
+          <Typography variant="h4" sx={{ flexGrow: 1, fontFamily: "'Delius Swash Caps', cursive" }}> 
+            tmdb 
           </Typography>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
            °❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･―୨୧⋆˚all about movies˚⋆୨୧―°❀⋆.ೃ࿔*:･°❀⋆.ೃ࿔*:･

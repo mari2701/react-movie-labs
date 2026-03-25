@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router";
 
 
-
 const Header = (props ) => {
   const title = props.title
     const navigate = useNavigate();
@@ -20,18 +19,21 @@ const Header = (props ) => {
         justifyContent: "space-around",
         flexWrap: "wrap",
         marginBottom: 1.5,
+      
       }}
       >
            <IconButton aria-label="go back" onClick={() => navigate(-1)}>
-        <ArrowBackIcon color="primary" fontSize="large" />
+        <ArrowBackIcon color="#eb5084" fontSize="large" />
       </IconButton>
 
-
-      <Typography variant="h4" component="h3">
+      <Typography variant="h4" component="h3"  sx ={{
+        color: '#da7c93',
+        fontFamily : "'Delius Swash Caps', cursive",
+      }}>
         {title}
       </Typography>
             <IconButton aria-label="go forward" onClick={() => navigate(+1)}>
-        <ArrowForwardIcon color="primary" fontSize="large" />
+        <ArrowForwardIcon color="eb5084" fontSize="large" />
       </IconButton>
 
     </Paper>

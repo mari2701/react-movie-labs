@@ -50,10 +50,12 @@ export default function MovieCard({ movie, action }) {
           
           <Typography variant="h5" component="p"
             sx={{
-              color: '#3a1212',
-              fontWeight: 'bold',
+              
+              fontFamily: "'Baloo Bhaina 2', cursive",
+              color: '#7a4530',
               width: 220,
               textAlign: 'center',
+        
               
             }}
           >
@@ -93,7 +95,7 @@ export default function MovieCard({ movie, action }) {
         {action(movie)}
       
         <Link to={`/movies/${movie.id}`}>
-          <Button variant="outlined" size="medium" sx={{ color: '#7a4530' }}>
+          <Button size="large " sx={{ color: '#7a4530', fontFamily: "'Baloo Bhaina 2', cursive" , fontSize: "1.5rem" }}>
             more info
           </Button>
         </Link>
