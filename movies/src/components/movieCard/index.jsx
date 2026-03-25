@@ -34,6 +34,7 @@ export default function MovieCard({ movie, action }) {
     addToFavorites(movie);
   };
 
+  const voteAverage =  movie.vote_average.toFixed(1);
 
   return (
     <Card>
@@ -46,14 +47,25 @@ export default function MovieCard({ movie, action }) {
           ) : null
         }
         title={
-          <Typography variant="h5" component="p">
+          
+          <Typography variant="h5" component="p"
+            sx={{
+              color: '#3a1212',
+              fontWeight: 'bold',
+              width: 220,
+              textAlign: 'center',
+              
+            }}
+          >
             {movie.title}{" "}
           </Typography>
         }
       />
 
       <CardMedia
-        sx={{ height: 500 }}
+        sx={{ height: 350, width: 250
+          , alignContent: "center"
+        }}
         image={
           movie.poster_path
             ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
@@ -62,16 +74,16 @@ export default function MovieCard({ movie, action }) {
       />
       <CardContent>
         <Grid container>
-          <Grid size={{xs: 6}}>
+          <Grid size={{xs: 5}}>
             <Typography variant="h6" component="p">
               <CalendarIcon fontSize="small" />
               {movie.release_date}
             </Typography>
           </Grid>
-          <Grid size={{xs: 6}}>
+          <Grid size={{xs: 5}}>
             <Typography variant="h6" component="p">
               <StarRateIcon fontSize="small" />
-              {"  "} {movie.vote_average}{" "}
+              {"  "} {voteAverage}{" "}
             </Typography>
           </Grid>
         </Grid>

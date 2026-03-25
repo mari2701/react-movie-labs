@@ -123,13 +123,9 @@ export default function FilterMoviesCard(props) {
         image="https://i.pinimg.com/1200x/a8/e0/e4/a8e0e49d0301f8812eb150cdc6bb95e8.jpg"
         title="Filter"
       />
-      <CardContent>
-        <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="large" />
-          Filter the movies.
-          <br />
-        </Typography>
-      </CardContent>
+      
+      
     </Card>
-  );
-}
+
+  
+)};

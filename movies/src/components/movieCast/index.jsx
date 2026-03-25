@@ -1,7 +1,18 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
+import Chip from "@mui/material/Chip";
+import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
+
+const root = {
+    display: "flex",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    listStyle: "none",
+    padding: 1.5,
+    margin: 2.5,
+};
+const chip = { margin: 0.5 };
 
 const MovieCast = ({ cast }) => {
   if (!cast || cast.length === 0) return null;
@@ -11,24 +22,26 @@ const MovieCast = ({ cast }) => {
       <Typography variant="h5" component="h3" sx={{ mt: 4 }}>
         Cast
       </Typography>
-      <Grid container spacing={2} sx={{ mt: 1 }}>
+      <Paper component="ul" sx={{...root}}>
         {cast.map((person) => (
-          <Grid item key={person.id} xs={6} sm={4} md={2}>
-            <Avatar
-              alt={person.name}
-              src={
-                person.profile_path
-                  ? `https://image.tmdb.org/t/p/w185/${person.profile_path}`
-                  : undefined
+          <li key={person.id}>
+            <Chip
+              avatar={
+                <Avatar
+                  alt={person.name}
+                  src={
+                    person.profile_path
+                      ? `https://image.tmdb.org/t/p/w185/${person.profile_path}`
+                      : undefined
+                  }
+                />
               }
-              sx={{ width: 120, height: 120, mb: 1 }}
+              label={person.name}
+              sx={{...chip}}
             />
-            <Typography variant="body2" align="center">
-              {person.name}
-            </Typography>
-          </Grid>
+          </li>
         ))}
-      </Grid>
+      </Paper>
     </>
   );
 };

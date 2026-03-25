@@ -18,7 +18,7 @@ const root = {
     flexWrap: "wrap",
     listStyle: "none",
     padding: 1.5,
-    margin: 0,
+    margin: 2.5,
 };
 const chip = { margin: 0.5 };
 
@@ -62,7 +62,7 @@ const [drawerOpen, setDrawerOpen] = useState(false);
         <Chip label={`Released: ${movie.release_date}`} />
         {/* //<Chip label={`Production Countries: ${movie.production_countries})`} /> */}
         <li>
-          <Chip label="Genres" sx={{...chip}} color="primary" />
+          <Chip label="Production Countries" sx={{...chip}} color="primary" />
         </li>
         {movie.production_countries.map((c) => (
           <li key={c.name}>
